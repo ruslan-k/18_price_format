@@ -1,5 +1,22 @@
+def convert_string_to_float_or_int(string):
+        try:
+            str_as_num = int(string)
+            return str_as_num
+        except ValueError:
+            try:
+                str_as_num = float(string)
+            except ValueError:
+                raise ValueError('Given value cannot be converted into a number')
+        return str_as_num
+
 def format_price(price):
-    pass
+    if isinstance(price, str):
+        price = convert_string_to_float_or_int(price)
+
+    if isinstance(price, int):
+        return '{:,.0f}'.format(price).replace(',', ' ')
+    elif isinstance(price, float):
+        return '{:,.2f}'.format(price).replace(',', ' ')
 
 if __name__ == '__main__':
     pass
