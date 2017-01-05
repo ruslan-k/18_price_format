@@ -12,7 +12,6 @@ def get_arguments():
 def convert_string_to_float_or_int(string):
     try:
         str_as_num = int(string)
-        return str_as_num
     except ValueError:
         try:
             str_as_num = float(string)
