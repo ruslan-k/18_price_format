@@ -29,8 +29,11 @@ def format_price(price):
         return '{:,.0f}'.format(price).replace(',', ' ')
     elif isinstance(price, float):
         return '{:,.2f}'.format(price).replace(',', ' ')
+    else:
+        raise TypeError('Given value is not a string or number')
 
 
 if __name__ == '__main__':
     args = get_arguments()
     print(format_price(args.price))
+
